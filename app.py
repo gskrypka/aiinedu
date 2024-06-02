@@ -99,10 +99,7 @@ def main_page():
 
 # Main function to control the app flow
 def main():
-    reset_quiz()
-    sidebar()
-
-    # --- Page Config ---
+ # --- Page Config ---
     st.set_page_config(
         page_title="Lang - Revolutionize Your Study Routine with Custom Exercises",
         page_icon="🎙️",
@@ -110,6 +107,8 @@ def main():
         initial_sidebar_state="expanded",
     )
 
+    reset_quiz()
+    sidebar()
 
     if 'page' not in st.session_state:
         st.session_state.page = "introduction"
