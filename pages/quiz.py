@@ -121,7 +121,7 @@ def llm_answer_checker(question, answer):
 def main():
     # Set title
     if st.button("Back to the main page"):
-        st.switch_page("main.py")
+        st.switch_page("app.py")
     st.title("Quiz")
 
     # Generate quiz questions
