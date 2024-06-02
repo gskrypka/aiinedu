@@ -19,7 +19,7 @@ def show_introduction():
 
 # User input screen
 def user_input():
-    st.title("Tell Us About Yourself")
+    st.title("Tell me about yoursef")
     
     native_language = st.selectbox("What's your native language?", ["English", "Japanese", "Spanish"])
     name = st.text_input("Name")

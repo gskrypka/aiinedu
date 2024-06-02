@@ -10,6 +10,30 @@ from langchain_core.output_parsers import JsonOutputParser
 from scripts.scripts import sidebar
 
 
+# Set OpenAI API key
+sidebar()
+load_dotenv()
+client = OpenAI(
+    api_key=st.session_state.openai_api_key
+) 
+
+# Initiate session states
+if 'quiz_started' not in st.session_state:
+    st.session_state.answers = []
+    st.session_state.correct_answers = 0
+    st.session_state.question_index = 0
+    st.session_state.quiz_started = False
+    st.session_state.topic = None
+    st.session_state.duration = None
+    st.session_state.quiz = None
+    st.session_state.end = False
+    st.session_state.quiz_loading = False
+    st.session_state.option_disabled = False
+    st.session_state.question_amount = 0
+if 'library' not in st.session_state:
+    st.session_state.library = []
+    
+
 # Generate images
 def generate_images(prompt):
     st.write(prompt)
@@ -96,35 +120,9 @@ def llm_answer_checker(question, answer):
     return output
 
 def main():
-    sidebar()
-
-    # Set OpenAI API key
-    load_dotenv()
-
-    client = OpenAI(
-        api_key=st.session_state.openai_api_key 
-    ) 
-
-    # Initiate session states
-    if 'quiz_started' not in st.session_state:
-        st.session_state.answers = []
-        st.session_state.correct_answers = 0
-        st.session_state.question_index = 0
-        st.session_state.quiz_started = False
-        st.session_state.topic = None
-        st.session_state.duration = None
-        st.session_state.quiz = None
-        st.session_state.end = False
-        st.session_state.quiz_loading = False
-        st.session_state.option_disabled = False
-        st.session_state.question_amount = 0
-    if 'library' not in st.session_state:
-        st.session_state.library = []
-
-
     # Set title
     if st.button("Back to the main page"):
-        st.switch_page("app.py")
+        st.switch_page("main.py")
     st.title("Quiz")
 
     # Generate quiz questions
