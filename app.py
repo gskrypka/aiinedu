@@ -46,16 +46,6 @@ def confirmation():
         st.rerun()
 
 def main_page():
-    
-    if "native_laguage" not in st.session_state:
-        st.session_state.native_language = ""
-    if "name" not in st.session_state:
-        st.session_state.name = ""
-    if "learn_laguage" not in st.session_state:
-        st.session_state.learn_language = ""
-    if "knowledge_level" not in st.session_state:
-        st.session_state.knowledge_level = "begginer"
-
     st.title("Anki cards on steroids")
 
     # Manage you library
