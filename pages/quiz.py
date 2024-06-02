@@ -32,6 +32,16 @@ if 'quiz_started' not in st.session_state:
     st.session_state.quiz_loading = False
     st.session_state.option_disabled = False
     st.session_state.question_amount = 0
+    
+if "native_laguage" not in st.session_state:
+    st.session_state.native_language = ""
+if "name" not in st.session_state:
+    st.session_state.name = ""
+if "learn_laguage" not in st.session_state:
+    st.session_state.learn_language = ""
+if "knowledge_level" not in st.session_state:
+    st.session_state.knowledge_level = "begginer"
+
 if 'library' not in st.session_state:
     st.session_state.library = []
     
@@ -126,7 +136,7 @@ def main():
     # Set title
     if st.button("Back to the main page"):
         st.switch_page("app.py")
-    st.title("Quiz")
+    st.title("Vocabulary & Grammar - quiz")
 
     # Generate quiz questions
     # Set input text
@@ -142,11 +152,10 @@ def main():
     
     # Generate quiz 
     if st.session_state.quiz_loading:
-        st.write("Generating quiz...")
-        st.write("Please wait, it might takes few seconds...")
-        st.session_state.quiz = generate_quiz(st.session_state.topic, st.session_state.duration, "en", "japanese")
-        st.session_state.question_amount = len(st.session_state.quiz["quiz"])
-        start_quiz()
+        with st.spinner('Please wait a moment. We are generating custom exercises for you'):
+            st.session_state.quiz = generate_quiz(st.session_state.topic, st.session_state.duration, st.session_state.native_language = native_language, st.session_state.knowledge_level = knowledge_level)
+            st.session_state.question_amount = len(st.session_state.quiz["quiz"])
+            start_quiz()
 
     # Display quiz questions
     if st.session_state.quiz_started and not st.session_state.quiz_loading:

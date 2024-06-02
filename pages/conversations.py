@@ -28,7 +28,7 @@ def text_to_audio(client, text, audio_path):
 
 def setup_session():
     with st.container(border=True):
-        st.write("Hi. This modul allows you to train your speaking and listening skill with AI. The app will generate the converstation based on your library and the topics you have learned.")
+        st.write("Hi. This module allows you to train your speaking and listening skill with AI. The app will generate the converstation based on your library and the topics you have learned.")
         st.session_state.topic = st.text_input(label="If you want you can specify the topic you want to learn today.")
         if st.button("Start conversation"):
             system_prompt = f'''
@@ -60,6 +60,15 @@ def main():
     if 'messages' not in st.session_state:
         st.session_state['messages'] = []
 
+    if "native_laguage" not in st.session_state:
+        st.session_state.native_language = ""
+    if "name" not in st.session_state:
+        st.session_state.name = ""
+    if "learn_laguage" not in st.session_state:
+        st.session_state.learn_language = ""
+    if "knowledge_level" not in st.session_state:
+        st.session_state.knowledge_level = "begginer"
+
     #Show title and back button
     if st.button("Back to the main page"):
         st.switch_page("app.py")
@@ -70,7 +79,7 @@ def main():
       setup_session()
 
     if st.session_state.session_start == True:
-        st.write(":microphone: Click on the voice recorder to interact with me. How can I assit you in learning a new language ?")
+        st.write(":microphone: Start a conversation by clicking on the button START. To send audio to bot click STOP.")
         # st.session_state.audio_bytes  = audio_recorder(
         #     text="Click on mic to start recording",
         #     pause_threshold=1.0,

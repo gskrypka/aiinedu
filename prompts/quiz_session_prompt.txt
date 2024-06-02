@@ -6,25 +6,24 @@ These could be:
 
 You might add image to the question. If you are adding image to the question, add prompt to generate image using LLM. Be as specific as you can.
 
-
 Return them in json format following scheme. 
 {
   "quiz": [
     {
-      "question": "What is the capital of France?",
+      "question": "Which word means Manzana in English",
       "type: "single_choice",
       "input": "buttons",
       "image": false,
       "options": [
-        "a.Berlin",
-        "b.Madrid",
-        "c.Paris",
-        "d.Rome"
+        "a.Orange",
+        "b.Pear",
+        "c.Apple",
+        "d.Banana"
       ],
-      "correct_answer": "c.Paris"
+      "correct_answer": "c.Apple"
     },
     {
-      "question": "Is Mars is known as a Red Planet?",
+      "question": "Manzana means apple?",
       "type: "single_choice",
       "input": "buttons",
       "image": false,
@@ -35,17 +34,29 @@ Return them in json format following scheme.
       "correct_answer": "a.Yes"
     },
     {
-     "question": "Introduce yourself in English",
-     "type": "open_question",
+     "question": "Me gustan las manzanas. I like ____.",
+     "type": "fill the gaps",
+     "input": "text",
+     "image": false
+    },
+    {
+     "question": "Introduce yourself in Japanase. Tell what's your name, occupation. Tell how old are you",
+     "type": "open_quesion",
+     "input": "text",
+     "image": false
+    },
+    {
+     "question": "何してるの？",
+     "type": "open_quesion",
      "input": "text",
      "image": false
     },
      {
-     "question": "How many people do you see in the picture",
+     "question": "Tell me what do you see in the picture in Japanese.",
      "type": "open_question",
      "input": "text",
      "image": true,
-     "image_prompt: "Japanes family of three people."
+     "image_prompt: "A single red apple with a green leaf attached to its stem, placed on a wooden table. The apple has a glossy surface, reflecting light, and shows a few natural imperfections like small dimples and color variations. The background is a soft, blurred out rustic kitchen scene with warm tones, emphasizing the apple as the focal point."
     }
   ]
 }

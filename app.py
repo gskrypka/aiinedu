@@ -3,7 +3,7 @@ from scripts.scripts import reset_quiz, sidebar
 
 # Introduction screen
 def show_introduction():
-    st.title("Anki Cards on Steroids: Revolutionize Your Study Routine with Custom Exercises")
+    st.title("Lang - Anki Cards on Steroids. Revolutionize Your Study Routine with Custom Exercises")
     st.write("""
     Imagine transforming your study notes into a dynamic learning experience that goes beyond traditional flashcards. 
     Welcome to the world of Anki cards on steroids—a cutting-edge approach that takes your Anki cards to the next level. 
@@ -46,6 +46,16 @@ def confirmation():
         st.rerun()
 
 def main_page():
+    
+    if "native_laguage" not in st.session_state:
+        st.session_state.native_language = ""
+    if "name" not in st.session_state:
+        st.session_state.name = ""
+    if "learn_laguage" not in st.session_state:
+        st.session_state.learn_language = ""
+    if "knowledge_level" not in st.session_state:
+        st.session_state.knowledge_level = "begginer"
+
     st.title("Anki cards on steroids")
 
     # Manage you library
@@ -55,7 +65,7 @@ def main_page():
         st.write("Scan images and add words and phrases to your library.")
 
     with col2:
-        st.write("Add topics and we will automatically generate words and phrases for you to learn.")
+        st.write("Add your topic to generate words and phrases to learn.")
 
     with col3:
         st.write("Upload words or phrases you want to learn.")
@@ -81,14 +91,14 @@ def main_page():
             st.switch_page("pages/library.py")
 
 
-    st.header("Exercises and quizes")
+    st.header("Practice Exercises")
     st.write("Select a type of exercises and train your knowledge")
 
 
     with st.container(border=True):
-        st.markdown("#### Vocabulary and grammatics")
+        st.markdown("#### Vocabulary and grammar")
         st.write("Learn words and phrases, practice grammar")
-        if st.button("Take a test"):
+        if st.button("Take a quiz"):
             st.switch_page("pages/quiz.py")
         
     with st.container(border=True):
