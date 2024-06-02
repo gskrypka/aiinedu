@@ -17,6 +17,7 @@ client = OpenAI(
     api_key=st.session_state.openai_api_key
 )
 OPENAI_API_KEY = st.session_state.openai_api_key
+st.write(st.session_state.openai_api_key)
 
 # Initiate session states
 if 'quiz_started' not in st.session_state:
