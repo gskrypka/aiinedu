@@ -46,7 +46,7 @@ def confirmation():
         st.rerun()
 
 def main_page():
-    st.title("Anki cards on steroids")
+    st.title("Lang - Anki cards on steroids")
 
     # Manage you library
     st.header("Manage your library")
