@@ -40,11 +40,14 @@ if "name" not in st.session_state:
 if "learn_laguage" not in st.session_state:
     st.session_state.learn_language = ""
 if "knowledge_level" not in st.session_state:
-    st.session_state.knowledge_level = "begginer"
+    st.session_state.knowledge_level = "beginner"
 
 if 'library' not in st.session_state:
     st.session_state.library = []
     
+st.write(st.session_state.native_language)
+st.write(st.session_state.learn_language)
+
 
 # Generate images
 def generate_images(prompt):
