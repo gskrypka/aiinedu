@@ -102,7 +102,7 @@ def scan():
 
 # Streamlit UI
 if st.button("Back to the main page"):
-    st.switch_page("main.py")
+    st.switch_page("app.py")
 st.title("Add words and phrases to the library from images")
 
 st.write("Add images or scan documents. All the data from the images will be added to the library.")
