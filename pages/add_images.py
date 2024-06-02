@@ -11,8 +11,8 @@ from io import BytesIO
 # Set OpenAI API key
 load_dotenv()
 client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY"),
-) 
+    api_key=st.session_state.openai_api_key
+)
 
 # Initiate session states
 if 'messages' not in st.session_state:

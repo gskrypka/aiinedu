@@ -13,7 +13,7 @@ from langchain_core.output_parsers import JsonOutputParser
 load_dotenv()
 
 client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY"),
+    api_key=st.session_state.openai_api_key 
 ) 
 
 # Initiate session states
