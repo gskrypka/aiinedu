@@ -153,7 +153,7 @@ def main():
     # Generate quiz 
     if st.session_state.quiz_loading:
         with st.spinner('Please wait a moment. We are generating custom exercises for you'):
-            st.session_state.quiz = generate_quiz(st.session_state.topic, st.session_state.duration, st.session_state.native_language = native_language, st.session_state.knowledge_level = knowledge_level)
+            st.session_state.quiz = generate_quiz(st.session_state.topic, st.session_state.duration, st.session_state.native_language, st.session_state.knowledge_level)
             st.session_state.question_amount = len(st.session_state.quiz["quiz"])
             start_quiz()
 
