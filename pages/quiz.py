@@ -35,10 +35,6 @@ if 'quiz_started' not in st.session_state:
 
 if 'library' not in st.session_state:
     st.session_state.library = []
-    
-st.write("Native" + st.session_state.native_language)
-st.write("Learning" + st.session_state.learn_language)
-
 
 # Generate images
 def generate_images(prompt):

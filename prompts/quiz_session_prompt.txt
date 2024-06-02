@@ -13,6 +13,7 @@ Quiz requirments:
 - use diverse question type
 - always provide the format of the input for answering question
 - Should be engaging
+- question should make sense and test user knowledge
 - Should be generated in json according to schema.
 - if user set a topic, that has no words in library, than prioritise topis.
 - at least 1 question should be with image. 
@@ -71,7 +72,7 @@ Return them in json format following scheme.
      "image": false
     },
      {
-     "question": "Tell me what do you see in the picture in Japanese.",
+     "question": "Tell me in Japanese what fruits do you see in picture.",
      "type": "short_answer",
      "input": "text",
      "image": true,
