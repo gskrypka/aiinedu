@@ -10,14 +10,7 @@ from langchain_core.output_parsers import JsonOutputParser
 from scripts.scripts import sidebar
 
 
-# Set OpenAI API key
-sidebar()
-load_dotenv()
-client = OpenAI(
-    api_key=st.session_state.openai_api_key
-)
-OPENAI_API_KEY = st.session_state.openai_api_key
-st.write(st.session_state.openai_api_key)
+
 
 # Initiate session states
 if 'quiz_started' not in st.session_state:
@@ -106,7 +99,7 @@ def disable_options():
     st.session_state.option_disabled = True
 
 def llm_answer_checker(question, answer):
-    model = ChatOpenAI(model="gpt-4o", temperature=0.1)
+    model = ChatOpenAI(model="gpt-4o", temperature=0.1, api_key=st.session_state.openai_api_key)
     parser = JsonOutputParser()
 
     # Open file quiz_llm_check_prompt.txt
@@ -122,6 +115,15 @@ def llm_answer_checker(question, answer):
     return output
 
 def main():
+    # Set OpenAI API key
+    sidebar()
+    load_dotenv()
+    client = OpenAI(
+        api_key=st.session_state.openai_api_key
+    )
+    OPENAI_API_KEY = st.session_state.openai_api_key
+    
+
     # Set title
     if st.button("Back to the main page"):
         st.switch_page("app.py")
