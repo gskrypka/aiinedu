@@ -6,9 +6,12 @@ import os
 import base64
 from PIL import Image
 from io import BytesIO
+from scripts.scripts import sidebar
 
 
 # Set OpenAI API key
+sidebar()
+
 load_dotenv()
 client = OpenAI(
     api_key=st.session_state.openai_api_key
