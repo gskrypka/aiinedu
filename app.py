@@ -65,10 +65,10 @@ def main_page():
         st.write("Scan images and add words and phrases to your library.")
 
     with col2:
-        st.write("Add your topic to generate words and phrases to learn.")
+        st.write("Add your topic to generate words and phrases to learn (available soon).")
 
     with col3:
-        st.write("Upload words or phrases you want to learn.")
+        st.write("Upload words or phrases you want to learn (available soon).")
 
     with col4:
         st.write("Check your library")
@@ -81,10 +81,10 @@ def main_page():
             st.switch_page("pages/add_images.py")
 
     with col12:
-        st.button("Add topics")
+        st.button("Add topics", disabled = True)
 
     with col13:
-        st.button("Add words and phrases")
+        st.button("Add words and phrases", disabled = True)
 
     with col14:
         if st.button("Check library"):
