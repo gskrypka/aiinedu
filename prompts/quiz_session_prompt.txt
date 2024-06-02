@@ -1,0 +1,51 @@
+Generate the list of quiz questions. 
+These could be:
+- single choice
+- fill the gaps,
+- open questions
+
+You might add image to the question. If you are adding image to the question, add prompt to generate image using LLM. Be as specific as you can.
+
+
+Return them in json format following scheme. 
+{
+  "quiz": [
+    {
+      "question": "What is the capital of France?",
+      "type: "single_choice",
+      "input": "buttons",
+      "image": false,
+      "options": [
+        "a.Berlin",
+        "b.Madrid",
+        "c.Paris",
+        "d.Rome"
+      ],
+      "correct_answer": "c.Paris"
+    },
+    {
+      "question": "Is Mars is known as a Red Planet?",
+      "type: "single_choice",
+      "input": "buttons",
+      "image": false,
+      "options": [
+        "a.Yes",
+        "b.No"
+      ],
+      "correct_answer": "a.Yes"
+    },
+    {
+     "question": "Introduce yourself in English",
+     "type": "open_question",
+     "input": "text",
+     "image": false
+    },
+     {
+     "question": "How many people do you see in the picture",
+     "type": "open_question",
+     "input": "text",
+     "image": true,
+     "image_prompt: "Japanes family of three people."
+    }
+  ]
+}
