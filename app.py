@@ -3,7 +3,7 @@ from scripts.scripts import reset_quiz, sidebar
 
 # Introduction screen
 def show_introduction():
-    st.title("Lang - Anki Cards on Steroids. Revolutionize Your Study Routine with Custom Exercises")
+    st.title("Lang - Revolutionize Your Study Routine with Custom Exercises")
     st.write("""
     Imagine transforming your study notes into a dynamic learning experience that goes beyond traditional flashcards. 
     Welcome to the world of Anki cards on steroids—a cutting-edge approach that takes your Anki cards to the next level. 
@@ -46,7 +46,7 @@ def confirmation():
         st.rerun()
 
 def main_page():
-    st.title("Lang - Anki cards on steroids")
+    st.title("Lang - Revolutionize Your Study Routine with Custom Exercises")
 
     # Manage you library
     st.header("Manage your library")
@@ -101,6 +101,16 @@ def main_page():
 def main():
     reset_quiz()
     sidebar()
+
+    # --- Page Config ---
+    st.set_page_config(
+        page_title="Lang - Revolutionize Your Study Routine with Custom Exercises",
+        page_icon="🎙️",
+        layout="centered",
+        initial_sidebar_state="expanded",
+    )
+
+
     if 'page' not in st.session_state:
         st.session_state.page = "introduction"
     if 'openai_api_key' not in st.session_state:
