@@ -32,15 +32,6 @@ if 'quiz_started' not in st.session_state:
     st.session_state.quiz_loading = False
     st.session_state.option_disabled = False
     st.session_state.question_amount = 0
-    
-if "native_laguage" not in st.session_state:
-    st.session_state.native_language = ""
-if "name" not in st.session_state:
-    st.session_state.name = ""
-if "learn_laguage" not in st.session_state:
-    st.session_state.learn_language = ""
-if "knowledge_level" not in st.session_state:
-    st.session_state.knowledge_level = "beginner"
 
 if 'library' not in st.session_state:
     st.session_state.library = []
