@@ -48,7 +48,6 @@ if 'library' not in st.session_state:
 
 # Generate images
 def generate_images(prompt):
-    st.write(prompt)
     try:
         response = client.images.generate(
             model="dall-e-3",
@@ -66,20 +65,21 @@ def generate_images(prompt):
         return "Imaage not generated"
 
 # Generate quiz questions
-def generate_quiz(topic, duration, input_language, subject):
+def generate_quiz(topic, duration):
     model = ChatOpenAI(model="gpt-4o", api_key=st.session_state.openai_api_key)
     #Open file quiz_session_prompt.txt
     with open("prompts/quiz_session_prompt.txt", "r") as file:
         system_prompt = file.read()
         
     # Generate prompt
-    user_prompt = ChatPromptTemplate.from_template("Genetarte quiz questions for a learning session on {topic} for {duration}. Subejct: {subject}. Knowledge: {knowledge}")
+    user_prompt = ChatPromptTemplate.from_template("Genetarte quiz questions. Topic: {topic}. Duration: {duration}. Language to learn: {language}. Native language:{native_lang}. Level of knowledg: {level}. Library of words and phrases user is learning: {knowledge}")
     prompt = SystemMessage(content=system_prompt) + user_prompt
 
     parser = JsonOutputParser()
 
     chain = prompt | model | parser
-    output = chain.invoke({"input_language": input_language, "subject": subject, "topic": topic, "duration": duration, "knowledge": st.session_state.library})
+
+    output = chain.invoke({"topic": topic, "language": st.session_state.learn_language, "duration": duration, "native_lang": st.session_state.native_language, "level": st.session_state.knowledge_level, "knowledge": st.session_state.library})
     
     # Generate images:
     k = 0
@@ -153,7 +153,7 @@ def main():
     # Generate quiz 
     if st.session_state.quiz_loading:
         with st.spinner('Please wait a moment. We are generating custom exercises for you'):
-            st.session_state.quiz = generate_quiz(st.session_state.topic, st.session_state.duration, st.session_state.native_language, st.session_state.knowledge_level)
+            st.session_state.quiz = generate_quiz(st.session_state.topic, st.session_state.duration)
             st.session_state.question_amount = len(st.session_state.quiz["quiz"])
             start_quiz()
 
