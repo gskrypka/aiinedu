@@ -15,7 +15,8 @@ sidebar()
 load_dotenv()
 client = OpenAI(
     api_key=st.session_state.openai_api_key
-) 
+)
+OPENAI_API_KEY = st.session_state.openai_api_key
 
 # Initiate session states
 if 'quiz_started' not in st.session_state:
@@ -55,7 +56,7 @@ def generate_images(prompt):
 
 # Generate quiz questions
 def generate_quiz(topic, duration, input_language, subject):
-    model = ChatOpenAI(model="gpt-4o")
+    model = ChatOpenAI(model="gpt-4o", )
     #Open file quiz_session_prompt.txt
     with open("prompts/quiz_session_prompt.txt", "r") as file:
         system_prompt = file.read()
