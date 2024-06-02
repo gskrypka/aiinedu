@@ -31,3 +31,5 @@ def sidebar():
         if st.button("Save"):
             st.session_state.openai_api_key = st.session_state.openai_api_key_input
             st.rerun()
+        with st.expander("Here is image with Japane words for testing purposes", expanded=False):
+            st.image("example.jpg")
