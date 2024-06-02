@@ -10,6 +10,13 @@ from langchain_core.output_parsers import JsonOutputParser
 from scripts.scripts import sidebar
 
 
+# Set OpenAI API key
+sidebar()
+load_dotenv()
+client = OpenAI(
+    api_key=st.session_state.openai_api_key
+)
+OPENAI_API_KEY = st.session_state.openai_api_key
 
 
 # Initiate session states
@@ -115,14 +122,6 @@ def llm_answer_checker(question, answer):
     return output
 
 def main():
-    # Set OpenAI API key
-    sidebar()
-    load_dotenv()
-    client = OpenAI(
-        api_key=st.session_state.openai_api_key
-    )
-    OPENAI_API_KEY = st.session_state.openai_api_key
-    
 
     # Set title
     if st.button("Back to the main page"):
